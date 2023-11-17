@@ -54,6 +54,6 @@ def convert_lowercase_f():
             while line != "":
                 new_f.write(line.lower())
                 line = original_f.readline()
-
+    return
 
 convert_lowercase_f()
