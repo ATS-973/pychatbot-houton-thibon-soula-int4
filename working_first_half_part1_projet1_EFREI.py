@@ -14,10 +14,15 @@ directory = "./speeches"
 files_names = list_of_files(directory, "txt")
 
 
+# Function to get all president's names who have a speech file
 def names(files_names):
+# Use of a set to avoid repetitions
     pres_names = set()
+# str_name is a string that will collect the name of the president written in the file name
     str_name = ''
+    # Loop to go through all files names
     for el in files_names:
+        # Loop to collect the name in the file
         for i in range(len(el)):
             if 49 <= ord(el[11+i]) <= 57 or el[11+i] == '.':
                 pres_names.add(str_name)
@@ -32,6 +37,7 @@ pres_names = names(files_names)
 president_Vrep = {"de Gaulle": "Charles", "Pompidou": "Georges", "Giscard dEstaing": "Valéry", "Mitterrand": "François", "Chirac": "Jacques", "Sarkozy": "Nicolas", "Hollande": "François", "Macron": "Emmanuel"}
 
 
+# Function to associate president's name with his first name
 def first_name_n_name():
     presidents = []
     for el in pres_names:
@@ -42,24 +48,29 @@ def first_name_n_name():
 presidents = first_name_n_name()
 
 
+# Function to display the list of presidents
 def display_pres_name_list():
     return print(presidents)
 
 
+# Function to remove any Uppercase and punctuations
 def convert_characters_f():
-    new_filesnames = []
     for elt in files_names:
-        new_file = elt[:-4]+"_update.txt"
-        new_filesnames.append(new_file)
-        with open("speeches/"+elt, 'r') as original_f, open(new_file, "a") as new_f:
+        new_file = "Cleaned/"+elt[:-4]+"_update.txt"
+        with open("speeches/"+elt, 'r', encoding='utf-8') as original_f, open(new_file, "a", encoding='utf-8') as new_f:
             line = original_f.readline()
             while line != "":
+                line = line.replace("'" or "-", " ")
+                for i in range(33, 48):
+                    line = line.replace(chr(i), "")
+                for i in range(58, 65):
+                    line = line.replace(chr(i), "")
+                for i in range(91, 97):
+                    line = line.replace(chr(i), "")
+                for i in range(123, 127):
+                    line = line.replace(chr(i), "")
                 new_f.write(line.lower())
                 line = original_f.readline()
-    return new_filesnames
+    return
 
-
-new_filesnames = convert_characters_f()
 convert_characters_f()
-
-
