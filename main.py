@@ -1,9 +1,8 @@
 import os
-import wikipedia
 
 files_names = []
 pres_names = set()
-pres_first_names = {}
+pres_first_names = {'Giscard dEstaing':'Valérie', 'Macron':'Emmanuel', 'Mitterrand':'Mitterrand', 'Sarkozy':'Nicolas', 'Hollande':'François', 'Chirac':'Jacques'}
 
 if os.path.isdir("./cleaned") == False:
     os.mkdir("./cleaned")
@@ -20,15 +19,17 @@ for i in list_of_files("./speeches","txt"): #Get all the presiden names from the
     elif i[:-4].split("_")[-1]:
         pres_names.add(i[:-4].split("_")[-1])
     
-    #Convert the speeches in lowercase stored in the directory ./cleaned
-    with open(f"./speeches/{i}", 'r') as f1:
-        with open(f"./cleaned/{i}",'a') as f2:
+    #Convert the speeches in lowercase, remove the punctuation and store them in the directory ./cleaned
+    with open(f"./speeches/{i}", 'r', encoding='utf-8') as f1:
+        with open(f"./cleaned/{i}",'a', encoding='utf-8') as f2:
             for i in f1.read():
-                if ord(i)>=65 and ord(i)<= 90:
-                    f2.write(chr(ord(i)+32))
-                else:
-                    f2.write(i)
+                if ord(i) >= 48 and ord(i) <= 57 or ord(i)>=65 and ord(i)<= 90 or ord(i) >= 97 and ord(i) <= 122:
+                    f2.write(i.lower())
 
-for i in pres_names: #Create a dictionnary that associates a first name to each president name
-    pres_first_names[i] = wikipedia.search(i)[0].split(" ")[0]
-print(pres_first_names)
+                if not(ord(i) >= 48 and ord(i) <= 57 or ord(i) >= 65 and ord(i) <= 90 or ord(i) >= 97 and ord(i) <= 122):
+                    if i == "'" or i == "-" or ord(i)==32:
+                        f2.write(" ")
+                    elif ord(i) > 127:
+                        f2.write(i)
+                    else:
+                        f2.write("")
