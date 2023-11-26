@@ -1,5 +1,5 @@
 import os
-import tfIdf
+import menu
 import functions
 
 files_names = []
@@ -34,4 +34,4 @@ for i in list_of_files("./speeches","txt"): #Get all the presiden names from the
                     else:
                         f2.write(" ")
 
-print(functions.unimportantWords("./cleaned"))
+menu.menu()
