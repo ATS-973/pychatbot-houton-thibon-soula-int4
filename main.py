@@ -4,7 +4,7 @@ import functions
 
 files_names = []
 pres_names = set()
-pres_first_names = {'Giscard dEstaing':'Valérie', 'Macron':'Emmanuel', 'Mitterrand':'Mitterrand', 'Sarkozy':'Nicolas', 'Hollande':'François', 'Chirac':'Jacques'}
+pres_first_names = {'Giscard dEstaing':'Valérie', 'Macron':'Emmanuel', 'Mitterrand':'François', 'Sarkozy':'Nicolas', 'Hollande':'François', 'Chirac':'Jacques'}
 
 if os.path.isdir("./cleaned") == False:
     os.mkdir("./cleaned")
