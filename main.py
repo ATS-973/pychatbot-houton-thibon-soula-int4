@@ -1,4 +1,6 @@
 import os
+import tfIdf
+import functions
 
 files_names = []
 pres_names = set()
@@ -21,15 +23,15 @@ for i in list_of_files("./speeches","txt"): #Get all the presiden names from the
     
     #Convert the speeches in lowercase, remove the punctuation and store them in the directory ./cleaned
     with open(f"./speeches/{i}", 'r', encoding='utf-8') as f1:
-        with open(f"./cleaned/{i}",'a', encoding='utf-8') as f2:
+        with open(f"./cleaned/{i}",'w', encoding='utf-8') as f2:
             for i in f1.read():
                 if ord(i) >= 48 and ord(i) <= 57 or ord(i)>=65 and ord(i)<= 90 or ord(i) >= 97 and ord(i) <= 122:
                     f2.write(i.lower())
 
                 if not(ord(i) >= 48 and ord(i) <= 57 or ord(i) >= 65 and ord(i) <= 90 or ord(i) >= 97 and ord(i) <= 122):
-                    if i == "'" or i == "-" or ord(i)==32:
-                        f2.write(" ")
-                    elif ord(i) > 127:
+                    if ord(i) > 127:
                         f2.write(i)
                     else:
-                        f2.write("")
+                        f2.write(" ")
+
+print(functions.unimportantWords("./cleaned"))
