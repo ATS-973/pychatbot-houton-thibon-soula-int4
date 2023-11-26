@@ -239,6 +239,7 @@ def menu():
           [4] : Display the name of all the president who talked about a given word and the first one who did it
           [5] : Display a list of the files that are analysed to prived the answers
           [6] : Display this list another time
+          [7] : Close 
           
           """
     print(welcome)
@@ -246,19 +247,21 @@ def menu():
         choice = int(input("Make your choice : "))
 
         if choice == 1:
-            least_important()
+            print(least_important())
         elif choice == 2:
-            highest_td_idf()
+            print(highest_td_idf())
         elif choice == 3:
             name = str(input("Choose a president name :"))
-            most_repeated_word(name)
+            print(most_repeated_word(name))
         elif choice == 4:
             word = str(input("Choose a word to find"))
-            search_who_said(word)
+            print(search_who_said(word))
         elif choice == 5:
             print(files_names)
         elif choice == 6:
             print(welcome)
+        elif choice == 7:
+            return "Good bye"
         else:
             print("The number you entered is not valid")
 
