@@ -229,3 +229,37 @@ def search_who_said(word):
         return ("here are all president who said it:",names,
                 "and here is the president who said it the most times:",highest_user)
 
+def menu():
+    welcome = """Welcom user, I am a chat bot that allow you to get informations about some french presidents' speeches of their nomination.
+          First, you have to choose which action you want to procceed. To do so enter the corresponding number and follow the instructions.
+          
+          [1] : Display a list of the least important words in all speeches combined
+          [2] : Display a list of the most important words all speeches combined
+          [3] : Display the most said words for a given president
+          [4] : Display the name of all the president who talked about a given word and the first one who did it
+          [5] : Display a list of the files that are analysed to prived the answers
+          [6] : Display this list another time
+          
+          """
+    print(welcome)
+    while True:
+        choice = int(input("Make your choice : "))
+
+        if choice == 1:
+            least_important()
+        elif choice == 2:
+            highest_td_idf()
+        elif choice == 3:
+            name = str(input("Choose a president name :"))
+            most_repeated_word(name)
+        elif choice == 4:
+            word = str(input("Choose a word to find"))
+            search_who_said(word)
+        elif choice == 5:
+            print(files_names)
+        elif choice == 6:
+            print(welcome)
+        else:
+            print("The number you entered is not valid")
+
+menu()
