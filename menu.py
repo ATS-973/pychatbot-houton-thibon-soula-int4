@@ -1,5 +1,6 @@
 import functions
 import tfIdf
+import test
 
 def menu():
     welcome = """Welcom user, I am a chat bot that allow you to get informations about some french presidents' speeches of their nomination.
@@ -10,9 +11,10 @@ def menu():
           [3] : Display the most said words for a given president
           [4] : Display the names of all the president who talked about a given word
           [5] : Display the name of the first president who talked about a given word
-          [6] : Display a list of the files that are analysed to provived the answers
-          [7] : Display this list another time
-          [8] : Close 
+          [6] : Display a list of the words that all presidents mention at least once (except for the least inportant words)
+          [7] : Display a list of the files that are analysed to provived the answers
+          [8] : Display this list another time
+          [9] : Close 
           
           """
     print(welcome)
@@ -20,23 +22,32 @@ def menu():
         choice = int(input("Make your choice : "))
 
         if choice == 1:
+            print("Processing...")
             print(functions.unimportantWords('./cleaned'))
         elif choice == 2:
+            print("Processing...")
             print(functions.highestTfIdf('./cleaned'))
         elif choice == 3:
             name = str(input("Choose a president name : "))
+            print("Processing...")
             print(f"The most reapeted words are {functions.mostRepeatedWord(name)}")
         elif choice == 4:
             word = str(input("Choose a word to find : "))
+            print("Processing...")
             print(functions.listNames(word))
         elif choice == 5:
             word = str(input("Choose a word to find : "))
+            print("Processing...")
             print(functions.firstTo(word))
         elif choice == 6:
-            print(tfIdf.list_of_files("./cleaned"))
+            print("Processing...")
+            print(test.commonWords())
         elif choice == 7:
-            print(welcome)
+            print("Processing...")
+            print(tfIdf.list_of_files("./cleaned"))
         elif choice == 8:
+            print(welcome)
+        elif choice == 9:
             print("Good bye")
             exit()
         else:

@@ -1,8 +1,10 @@
 import tfIdf
+import math
 
 def unimportantWords(corpus):
     words = []
-    for word in tfIdf.idf(corpus).keys():
+    listWords = tfIdf.idf(corpus).keys()
+    for word in listWords:
         if tfIdf.idf(corpus)[word] == 0:
             words.append(word)
     return(words)
