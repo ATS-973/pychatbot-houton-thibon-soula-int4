@@ -1,6 +1,5 @@
-import functions
+import functionsFiles
 import tfIdf
-import test
 
 def menu():
     welcome = """Welcom user, I am a chat bot that allow you to get informations about some french presidents' speeches of their nomination.
@@ -23,25 +22,25 @@ def menu():
 
         if choice == 1:
             print("Processing...")
-            print(functions.unimportantWords('./cleaned'))
+            print(functionsFiles.unimportantWords('./cleaned'))
         elif choice == 2:
             print("Processing...")
-            print(functions.highestTfIdf('./cleaned'))
+            print(functionsFiles.highestTfIdf('./cleaned'))
         elif choice == 3:
             name = str(input("Choose a president name : "))
             print("Processing...")
-            print(f"The most reapeted words are {functions.mostRepeatedWord(name)}")
+            print(f"The most reapeted words are {functionsFiles.mostRepeatedWord(name)}")
         elif choice == 4:
             word = str(input("Choose a word to find : "))
             print("Processing...")
-            print(functions.listNames(word))
+            print(functionsFiles.listNames(word))
         elif choice == 5:
             word = str(input("Choose a word to find : "))
             print("Processing...")
-            print(functions.firstTo(word))
+            print(functionsFiles.firstTo(word))
         elif choice == 6:
             print("Processing...")
-            print(test.commonWords())
+            #print(test.commonWords())
         elif choice == 7:
             print("Processing...")
             print(tfIdf.list_of_files("./cleaned"))
