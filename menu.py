@@ -1,5 +1,6 @@
 import functionsFiles
 import tfIdf
+import functionsQuestions
 
 def menu():
     welcome = """Welcom user, I am a chat bot that allow you to get informations about some french presidents' speeches of their nomination.
@@ -13,7 +14,8 @@ def menu():
           [6] : Display a list of the words that all presidents mention at least once (except for the least inportant words)
           [7] : Display a list of the files that are analysed to provived the answers
           [8] : Display this list another time
-          [9] : Close 
+          [9] : Enter ChatBot mode : Ask your own question and get approximative answers !
+          [10] : Close 
           
           """
     print(welcome)
@@ -47,6 +49,10 @@ def menu():
         elif choice == 8:
             print(welcome)
         elif choice == 9:
+            question = str(input("Enter the question you want to ask (in french): "))
+            print("Processing...")
+            print(functionsQuestions.answer("./cleaned", question))
+        elif choice == 10:
             print("Good bye")
             exit()
         else:
