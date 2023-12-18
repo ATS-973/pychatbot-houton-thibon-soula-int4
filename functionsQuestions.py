@@ -32,7 +32,7 @@ def tfIdfQuestion(corpus, question):
     wordsOcc = {}
     idfCorpus = tfIdf.idf(corpus)
     vector = []
-    for i in tokenization(question):
+    for i in wordsInCorpus("./cleaned", question):
         if i not in wordsOcc:
             wordsOcc[i] = 1
         else:

@@ -8,4 +8,11 @@ Link to the project: https://github.com/ATS-973/pychatbot-houton-thibon-soula-in
 
 So far, our ChatBot is able to fully analyses txt files and to deduce which words are important and which ones are not. It is also able to get the mot repeated words for a given president and to find which presidents talked about a given word and which one talked the most about it.
 
-To run the chatBot, you just have to execute the main.py file and let you guide by the menu
+To use our chatBot:
+
+Step 1: Download the projet:
+    Entrez les commandes suivantes dans un terminal :
+    ```git clone https://github.com/ATS-973/pychatbot-houton-thibon-soula-int4```
+    ```cd pychatbot-houton-thibon-soula-int4```
+    ```python main.py```
+    And from now on you just have to let you guide by the menu
