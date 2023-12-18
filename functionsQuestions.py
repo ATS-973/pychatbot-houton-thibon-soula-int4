@@ -47,15 +47,6 @@ def tfIdfQuestion(corpus, question):
         
     return(vector)
 
-def matriceQuestion(question, corpus):
-    matQuestion = []
-    mat = tfIdf.matrice(corpus)
-    idfCorpus = tfIdf.idf(corpus)
-    for i in tokenization(question):
-        if i in idfCorpus.keys():
-            matQuestion.append(mat[list(idfCorpus.keys()).index(i)])
-    return(matQuestion)
-
 def scalarProduct(vectorA, vectorB):
     scalarProduct = 0
     for i in range(0, len(vectorA)-1, 1):
@@ -83,7 +74,7 @@ def mostReleventDoc(corpus, question):
         for element in matriceIdf:
             vectDocIdf.append(matriceIdf[matriceIdf.index(element)][i])
         
-        actScore = scalarProduct(docVect, vectDocIdf)/(normeVector(docVect)*normeVector(vectDocIdf))
+        actScore = similarity(docVect, vectDocIdf)
 
         if actScore > maxScore:
             releventDoc = i
