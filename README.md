@@ -10,9 +10,9 @@ So far, our ChatBot is able to fully analyses txt files and to deduce which word
 
 To use our chatBot:
 
-Step 1: Download the projet:
-    Entrez les commandes suivantes dans un terminal :
-    ```git clone https://github.com/ATS-973/pychatbot-houton-thibon-soula-int4```
-    ```cd pychatbot-houton-thibon-soula-int4```
-    ```python main.py```
+Download and run the projet:   
+    Entrez les commandes suivantes dans un terminal :   
+    1. ```git clone https://github.com/ATS-973/pychatbot-houton-thibon-soula-int4```   
+    2. ```cd pychatbot-houton-thibon-soula-int4```   
+    3. ```python main.py```   
     And from now on you just have to let you guide by the menu
