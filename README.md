@@ -20,3 +20,24 @@ Entrez les commandes suivantes dans un terminal :
 3. ```python main.py```
 
 And from now on you just have to let you guide by the menu
+
+
+**The different options listed in the menu are:**
+
+1. Display the list of the least important words in the corpus
+
+2. Display the list of the most important words in the corpus
+
+3. Display the most said words by a given president
+
+4. Display the names of all the president who talked about a given word
+
+5. Display the name of the first president who talked about a given word
+
+6. Display the list of the files that were analysed to provide all the answers
+
+7. Display the menu another time
+
+8. Enter ChatBot mode which allow you to ask your own questions and get approximative answers
+
+9. End the programme
