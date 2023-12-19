@@ -1,7 +1,7 @@
 import tfIdf
 import math
 
-def tokenization(question):
+def tokenization(question):  # Return a given string without uppercase letters and ponctuation
     questionCleared = ""
     for i in question:
         if ord(i) >= 48 and ord(i) <= 57 or ord(i)>=65 and ord(i)<= 90 or ord(i) >= 97 and ord(i) <= 122:
@@ -19,7 +19,7 @@ def tokenization(question):
     questionCleared = [i for i in questionCleared if i != ""]
     return(questionCleared)
 
-def wordsInCorpus(corpus, question):
+def wordsInCorpus(corpus, question):  # Return a list of the words that are present in both the given corpus and the given string
     questionCleared = tokenization(question)
     idfList = tfIdf.idf(corpus).keys()
     finalWords = []
@@ -28,7 +28,7 @@ def wordsInCorpus(corpus, question):
             finalWords.append(i)
     return(finalWords)
 
-def tfIdfQuestion(corpus, question):
+def tfIdfQuestion(corpus, question):  # Return the Tf-Idf vector of a given string according to a given corpus of document
     wordsOcc = {}
     idfCorpus = tfIdf.idf(corpus)
     vector = []
@@ -47,23 +47,23 @@ def tfIdfQuestion(corpus, question):
         
     return(vector)
 
-def scalarProduct(vectorA, vectorB):
+def scalarProduct(vectorA, vectorB):  # Return the result of the scalar product of two given vectors
     scalarProduct = 0
     for i in range(0, len(vectorA)-1, 1):
         scalarProduct += vectorA[i] * vectorB[i]
     return(scalarProduct)
 
-def normeVector(vector):
+def normeVector(vector):  # Return the value of the norme of a given vector
     norme = 0
     for i in vector:
         norme += i**2
     return(math.sqrt(norme))
 
-def similarity(vectorA, vectorB):
+def similarity(vectorA, vectorB):  # Return the cosin similarity of two vectors
     score = scalarProduct(vectorA, vectorB) / (normeVector(vectorA) * normeVector(vectorB))
     return(score)
 
-def mostReleventDoc(corpus, question):
+def mostReleventDoc(corpus, question):  # Return the most relevent document of a given corpus regarding to a given string
     matriceIdf = tfIdf.matrice(corpus)
     docVect = tfIdfQuestion(corpus, question)
     vectDocIdf = []
@@ -84,7 +84,7 @@ def mostReleventDoc(corpus, question):
     
     return(tfIdf.list_of_files(corpus, ".txt")[releventDoc])
 
-def answer(corpus, question):
+def answer(corpus, question):  # Generate an answer to a given question
     maxi = 0
     idfCorpus = list(tfIdf.idf(corpus))
     tfIdfScore = tfIdfQuestion("./cleaned",question)

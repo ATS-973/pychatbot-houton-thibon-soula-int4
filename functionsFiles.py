@@ -1,9 +1,8 @@
 import tfIdf
 import os
 
-def initialisation():
+def initialisation():   # Create the ./cleaned directory if not exists and transform all txt files with no uppercase letters and no ponctuation
     pres_names = set()
-    pres_first_names = {'Giscard dEstaing':'Valérie', 'Macron':'Emmanuel', 'Mitterrand':'François', 'Sarkozy':'Nicolas', 'Hollande':'François', 'Chirac':'Jacques'}
 
     if os.path.isdir("./cleaned") == False:
         os.mkdir("./cleaned")
@@ -30,7 +29,7 @@ def initialisation():
                         else:
                             f2.write(" ")
 
-def unimportantWords(corpus):
+def unimportantWords(corpus):   # Return all the "unimportant" words according to their tf score
     words = []
     listWords = tfIdf.idf(corpus).keys()
     for word in listWords:
@@ -38,7 +37,7 @@ def unimportantWords(corpus):
             words.append(word)
     return(words)
 
-def highestTfIdf(corpus):
+def highestTfIdf(corpus):  # Return the word(s) with the highest TfIdf score in the corpus
     value = 0
     listOfWords = []
     for files in tfIdf.list_of_files("./cleaned", "txt"):
@@ -51,7 +50,7 @@ def highestTfIdf(corpus):
                 listOfWords.append(i)
     return(listOfWords)
 
-def mostRepeatedWord(name):
+def mostRepeatedWord(name):   # Return the most repeated word(s) by a given president
     forgetable = unimportantWords("./cleaned")
     listWords = []
     mostValue = 0
@@ -66,7 +65,7 @@ def mostRepeatedWord(name):
                     listWords.append(key)
     return(listWords)
 
-def listNames(word):
+def listNames(word):  # Return the list of all president who talked about a given word
     listNames = []
     for i in tfIdf.list_of_files("./cleaned" , "txt"):
         if word in tfIdf.tf(f"./cleaned/{i}"):
@@ -78,7 +77,7 @@ def listNames(word):
                     listNames.append(i[:-4].split("_")[-1])
     return(listNames)
 
-def mostName(word):
+def mostName(word):  # Return the name of the president who talked the most about a given word
     value = 0
     mostValue = 0
     name = ""
@@ -92,7 +91,7 @@ def mostName(word):
                     name = i[:-4].split("_")[-1]
     return(name)
     
-def firstTo(word):
+def firstTo(word):  # Return the name of the president who first talked about a given word
     chronoList = ['dEstaing', 'Mitterrand', 'Chirac', 'Sarkozy', 'Hollande', 'Macron']
     value = -1
     for i in tfIdf.list_of_files("./cleaned", "txt"):
@@ -108,5 +107,3 @@ def firstTo(word):
         return(chronoList[value])
     else:
         return("No president talked about the word you gave")
-
-#def commonWords(corpus):

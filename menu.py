@@ -12,11 +12,10 @@ def menu():
           [3] : Display the most said words for a given president
           [4] : Display the names of all the president who talked about a given word
           [5] : Display the name of the first president who talked about a given word
-          [6] : Display a list of the words that all presidents mention at least once (except for the least important words)
-          [7] : Display a list of the files that are analysed to provived the answers
-          [8] : Display this list another time
-          [9] : Enter ChatBot mode : Ask your own question and get approximative answers !
-          [10] : Close 
+          [6] : Display a list of the files that are analysed to provived the answers
+          [7] : Display this list another time
+          [8] : Enter ChatBot mode : Ask your own question and get approximative answers !
+          [9] : Close 
           
           """
     print(welcome)
@@ -64,20 +63,13 @@ def menu():
         elif choice == 6:
             print("Processing...")
             print()
-            #print(test.commonWords())
+            print(tfIdf.list_of_files("./cleaned", ".txt"))
             print()
             print("#########################################################")
             print()
         elif choice == 7:
-            print("Processing...")
-            print()
-            print(tfIdf.list_of_files("./cleaned"))
-            print()
-            print("#########################################################")
-            print()
-        elif choice == 8:
             print(welcome)
-        elif choice == 9:
+        elif choice == 8:
             question = str(input("Enter the question you want to ask (in french): "))
             print("Processing...")
             print()
@@ -85,7 +77,7 @@ def menu():
             print()
             print("#########################################################")
             print()
-        elif choice == 10:
+        elif choice == 9:
             print("Good bye")
             print()
             print("#########################################################")
