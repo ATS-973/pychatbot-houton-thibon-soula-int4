@@ -1,4 +1,4 @@
-# Python project EFREI 2023
+# Python project EFREI 2023-2024
 
 (By HOUTON Gaby and THIBON-SOULA Achille)
 
