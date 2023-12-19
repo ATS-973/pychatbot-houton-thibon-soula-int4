@@ -1,8 +1,10 @@
-import functions
+import functionsFiles
 import tfIdf
+import functionsQuestions
 
 def menu():
-    welcome = """Welcom user, I am a chat bot that allow you to get informations about some french presidents' speeches of their nomination.
+    welcome = """
+    Welcome user, I am a chat bot that allow you to get informations about some french presidents' speeches of their nomination.
           First, you have to choose which action you want to procceed. To do so enter the corresponding number and follow the instructions.
           
           [1] : Display a list of the least important words in all speeches combined
@@ -10,9 +12,11 @@ def menu():
           [3] : Display the most said words for a given president
           [4] : Display the names of all the president who talked about a given word
           [5] : Display the name of the first president who talked about a given word
-          [6] : Display a list of the files that are analysed to provived the answers
-          [7] : Display this list another time
-          [8] : Close 
+          [6] : Display a list of the words that all presidents mention at least once (except for the least important words)
+          [7] : Display a list of the files that are analysed to provived the answers
+          [8] : Display this list another time
+          [9] : Enter ChatBot mode : Ask your own question and get approximative answers !
+          [10] : Close 
           
           """
     print(welcome)
@@ -20,24 +24,72 @@ def menu():
         choice = int(input("Make your choice : "))
 
         if choice == 1:
-            print(functions.unimportantWords('./cleaned'))
+            print("Processing...")
+            print()
+            print(functionsFiles.unimportantWords('./cleaned'))
+            print()
+            print("#########################################################")
+            print()
         elif choice == 2:
-            print(functions.highestTfIdf('./cleaned'))
+            print("Processing...")
+            print()
+            print(functionsFiles.highestTfIdf('./cleaned'))
+            print()
+            print("#########################################################")
+            print()
         elif choice == 3:
             name = str(input("Choose a president name : "))
-            print(f"The most reapeted words are {functions.mostRepeatedWord(name)}")
+            print("Processing...")
+            print()
+            print(f"The most reapeted words are {functionsFiles.mostRepeatedWord(name)}")
+            print()
+            print("#########################################################")
+            print()
         elif choice == 4:
             word = str(input("Choose a word to find : "))
-            print(functions.listNames(word))
+            print("Processing...")
+            print()
+            print(functionsFiles.listNames(word))
+            print()
+            print("#########################################################")
+            print()
         elif choice == 5:
             word = str(input("Choose a word to find : "))
-            print(functions.firstTo(word))
+            print("Processing...")
+            print()
+            print(functionsFiles.firstTo(word))
+            print()
+            print("#########################################################")
+            print()
         elif choice == 6:
-            print(tfIdf.list_of_files("./cleaned"))
+            print("Processing...")
+            print()
+            #print(test.commonWords())
+            print()
+            print("#########################################################")
+            print()
         elif choice == 7:
-            print(welcome)
+            print("Processing...")
+            print()
+            print(tfIdf.list_of_files("./cleaned"))
+            print()
+            print("#########################################################")
+            print()
         elif choice == 8:
+            print(welcome)
+        elif choice == 9:
+            question = str(input("Enter the question you want to ask (in french): "))
+            print("Processing...")
+            print()
+            print(functionsQuestions.answer("./cleaned", question))
+            print()
+            print("#########################################################")
+            print()
+        elif choice == 10:
             print("Good bye")
+            print()
+            print("#########################################################")
+            print()
             exit()
         else:
             print("The number you entered is not valid")
