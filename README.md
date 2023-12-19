@@ -41,3 +41,5 @@ And from now on you just have to let you guide by the menu
 8. Enter ChatBot mode which allow you to ask your own questions and get approximative answers
 
 9. End the programme
+
+Just enter the number of the option you want, wait a little bit and read your answer
