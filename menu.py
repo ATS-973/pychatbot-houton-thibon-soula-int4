@@ -12,7 +12,7 @@ def menu():
           [3] : Display the most said words for a given president
           [4] : Display the names of all the president who talked about a given word
           [5] : Display the name of the first president who talked about a given word
-          [6] : Display a list of the words that all presidents mention at least once (except for the least inportant words)
+          [6] : Display a list of the words that all presidents mention at least once (except for the least important words)
           [7] : Display a list of the files that are analysed to provived the answers
           [8] : Display this list another time
           [9] : Enter ChatBot mode : Ask your own question and get approximative answers !
